@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Driver Profile</title>
+    <style>
+         
+        body {
+            font-family: Arial, sans-serif;
+            color: #333333;
+            background-color: #f0f8ff; /* Bleu clair */
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        h1 {
+            color: #336699; /* Bleu */
+            text-align: center;
+        }
+
+        .profile-info {
+            margin-bottom: 20px;
+        }
+
+        .profile-info img {
+            display: block;
+            margin: 0 auto;
+            border-radius: 50%;
+        }
+
+        .profile-info p {
+            text-align: center;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+        }
+
+        th, td {
+            padding: 10px;
+            border-bottom: 1px solid #ccc;
+            text-align: left;
+        }
+
+        th {
+            background-color: #336699; /* Bleu */
+            color: #ffffff; /* Blanc */
+        }
+
+        .comment-box {
+            margin-bottom: 50px;
+        }
+
+        .comment-box textarea {
+            width: 100%;
+            height: 100px;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-sizing: border-box;
+            resize: none;
+        }
+
+        .comment-box button {
+            padding: 10px 20px;
+            background-color: #336699; /* Bleu */
+            color: #ffffff; /* Blanc */
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+      
+        .mission-details {
+            display: none;
+            margin-top: 10px;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        input[type="checkbox"] {
+            display: none;
+        }
+
+        input[type="checkbox"] + label {
+            cursor: pointer;
+        }
+
+        input[type="checkbox"]:checked + label + .mission-details {
+            display: block;
+        }
+    
+
+    </style>
+</head>
+<body>
+    <header style="width: 100%; margin-bottom: 20px;">
+        <header style="width: 100%; margin-bottom: 20px;">
+            <style>
+                .menu {
+                    width: 100%;
+                    margin-bottom: 20px ;
+                }
+        
+                .menu th, .menu td {
+                    text-align: left;
+                    padding: 20px; 
+                    border-bottom: 2px solid #336699; /* Bleu */
+                }
+        
+                .menu td:last-child {
+                    font-weight: bold;
+                    color: #000000; /* Noir */
+                }
+        
+                .menu tr {
+                    text-align: left;
+                    font-weight: normal;
+                    color: #336699; /* Bleu */
+                }
+            </style>
+            <nav>
+                <table width="100%">
+                    <tr>
+                        <td style="vertical-align: middle;">
+                            <h1 style="margin: 0; text-align: left;">Fleetprodrivers</h1>
+                            <h2 style="margin: 0; font-size: 24px;">Profil</h2>
+                        </td>
+                        <td width="5%">
+                         
+                            <a href="index.html"> 
+                                Deconnexion
+                            </a>
+                        </td>
+                    </tr>
+                </table>
+            </nav>
+        </header>
+        
+    
+
+    <div class="container">
+        <div class="profile-info">
+            <img src="user.png" alt="Driver Photo" width="150">
+            <p><strong>Nom Prénom:</strong> John Doe</p>
+            <p><strong>Date de Naissance:</strong> 01/01/1990</p>
+            <p><strong>Lieu de naissance:</strong> New York</p>
+        </div>
+
+        <div class="mission">
+            <table>
+                <tr>
+                    <th colspan="2">Mission non accomplie</th>
+                </tr>
+                <td>
+                    <ul>
+                        <li>
+                            <input type="checkbox" id="mission3">
+                            <label for="mission3">Mission 3 - Voir Plus de Détails</label>
+                            <div class="mission-details">
+                                <p><strong>Date de Départ:</strong> 01/05/2024</p>
+                                <p><strong>Date d'Arrivée:</strong> 05/05/2024</p>
+                                <p><strong>Prix:</strong> $500</p>
+                                <p><strong>Distance:</strong> 200 km</p>
+                                <p><strong>Voiture:</strong> Camion</p>
+                            </div>
+                        </li>
+                        <li>
+                            <input type="checkbox" id="mission4">
+                            <label for="mission4">Mission 4 - Voir Plus de Détails</label>
+                            <div class="mission-details">
+                                <p><strong>Date de Départ:</strong> 10/06/2024</p>
+                                <p><strong>Date d'Arrivée:</strong> 15/06/2024</p>
+                                <p><strong>Prix:</strong> $700</p>
+                                <p><strong>Distance:</strong> 300 km</p>
+                                <p><strong>Voiture:</strong> Voiture</p>
+                            </div>
+                        </li>
+                    </ul>
+                </td>
+            </table>
+           
+        </div>
+
+        <table>
+            <tr>
+                <th colspan="2">Plus d'Information</th>
+            </tr>
+            <tr>
+                <td>Missions Accomplies par Mois</td>
+                <td>5</td>
+            </tr>
+            <tr>
+                <td>Total des Missions Accomplies</td>
+                <td>100</td>
+            </tr>
+            <tr>
+                <td>Licences de Conduite</td>
+                <td>A, B, C</td>
+            </tr>
+            <tr>
+                <td colspan="2">
+                    <strong>Historique des Missions Accomplies:</strong>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2">
+                    <ul>
+                        <li>
+                            <input type="checkbox" id="mission1">
+                            <label for="mission1">Mission 1 - Voir Plus de Détails</label>
+                            <div class="mission-details">
+                                <p><strong>Date de Départ:</strong> 01/05/2024</p>
+                                <p><strong>Date d'Arrivée:</strong> 05/05/2024</p>
+                                <p><strong>Prix:</strong> $500</p>
+                                <p><strong>Distance:</strong> 200 km</p>
+                                <p><strong>Voiture:</strong> Camion</p>
+                            </div>
+                        </li>
+                        <li>
+                            <input type="checkbox" id="mission2">
+                            <label for="mission2">Mission 2 - Voir Plus de Détails</label>
+                            <div class="mission-details">
+                                <p><strong>Date de Départ:</strong> 10/06/2024</p>
+                                <p><strong>Date d'Arrivée:</strong> 15/06/2024</p>
+                                <p><strong>Prix:</strong> $700</p>
+                                <p><strong>Distance:</strong> 300 km</p>
+                                <p><strong>Voiture:</strong> Voiture</p>
+                            </div>
+                        </li>
+                       
+                    </ul>
+                </td>
+            </tr>
+            
+        </table>
+
+        <div class="comment-box">
+            <h2>Rapport</h2>
+            <textarea placeholder="Entrez votre rapport ici"></textarea>
+            <button>Envoyer</button>
+        </div>
+    </div>
+</body>
+
+</html>
+<footer>
+    <p>&copy; 2024 Fleet and Mission Management System. All rights reserved.</p>
+</footer>
