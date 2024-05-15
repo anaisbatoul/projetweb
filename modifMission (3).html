@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ajouter une mission</title>
+    <style>
+           input {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 20px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+     
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4; 
+        }
+
+        header {
+            background-color: #ffffff; 
+            padding: 10px 0;
+            text-align: left;
+            font-weight: normal;
+            color: #336699;
+            width: 100%;
+            height: 50px; 
+            margin-bottom: 20px;
+        }
+
+        nav {
+            background-color: #4b739b; 
+            padding: 10px 0;
+        }
+
+        nav ul {
+            list-style-type: none;
+            padding: 0;
+            text-align: center;
+        }
+
+        nav ul li {
+            display: inline;
+            margin-right: 20px;
+        }
+
+        nav ul li a {
+            color: #ffffff; 
+            text-decoration: none;
+        }
+
+       
+        .container {
+            max-width: 600px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #ffffff; 
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); 
+        }
+
+        h2 {
+            color: #336699; 
+            border-bottom: 2px solid #336699; 
+            padding-bottom: 10px;
+        }
+
+        form {
+            margin-top: 20px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            color: #333;
+        }
+
+        select {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 20px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+
+        button {
+            padding: 10px 20px;
+            background-color: #007bff; 
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+       
+          footer {
+            text-align: center;
+            margin-top: 90px;
+            padding: 20px;
+            background-color: #336699; 
+            color: #ffffff; 
+            width: 100%;
+            position: fixed;
+            bottom: 0;
+        }
+    </style>
+</head>
+<body>
+    <header>
+    
+        <div style="display: flex; justify-content: space-between; align-items: center;">
+            <h1>Fleetprodrivers <span style="font-size: 14px;">Admin</span></h1>
+            <a href="index.html">Déconnexion</a>
+        </div>
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="admin.html">Home</a></li>
+            <li><a href="gestCompte.html">Gestion des comptes drivers</a></li>
+            <li><a href="gestMission.html">Gestion des missions</a></li>
+            <li><a href="gestVoiture.html">Gestion des voitures</a></li>
+        </ul>
+    </nav>
+
+    <div class="container">
+        <h2>Ajouter une nouvelle mission</h2>
+        <form>
+            <label for="conducteur">Conducteur</label>
+            <select id="conducteur" name="conducteur" required>
+                <option value="">Sélectionner un conducteur</option>
+           
+                <option value="Test1">Test1</option>
+                <option value="Test2">Test2</option>
+               
+            </select>
+
+            <label for="vehicule">Véhicule</label>
+            <select id="vehicule" name="vehicule" required>
+                <option value="">Sélectionner un véhicule</option>
+              
+                <option value="toyota_camry">Toyota Camry</option>
+                <option value="honda_civic">Honda Civic</option>
+                <option value="bmw_x5">BMW X5</option>
+            </select>
+
+            <label for="dateDebut">Date de Début</label>
+            <input type="date" id="dateDebut" name="dateDebut" required>
+        
+            <label for="dateFin">Date de Fin</label>
+            <input type="date" id="dateFin" name="dateFin" required>
+         
+            <label for="distance">Distance</label>
+            <input type="text" id="distance" name="distance" required>
+         
+            <label for="prix">Prix</label>
+            <input type="text" id="prix" name="prix" required>
+      
+            <button type="submit">Modifier</button>
+        </form>
+    </div>
+
+    <footer>
+        <p>&copy; 2024 Fleet and Mission Management System. All rights reserved.</p>
+    </footer>
+</body>
+</html>
