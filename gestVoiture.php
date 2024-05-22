@@ -1,6 +1,6 @@
 <?php
 // Connexion à la base de données
-$servername = "localhost:3307"; 
+$servername = "localhost"; 
 $username = "root"; 
 $password = ""; 
 $dbname = "carproject"; 

@@ -23,7 +23,8 @@
             height: 50px; 
             margin-bottom: 20px;
         }
-  nav {
+
+        nav {
             background-color: #4b739b; /* Bleu */
             padding: 10px 0;
         }
@@ -44,34 +45,6 @@
             text-decoration: none;
         }
 
-   
-        section {
-            padding: 20px;
-            margin-bottom: 30px;
-            background-color: #ffffff; /* Blanc */
-            border-radius: 5px;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Ombre légère */
-        }
-
-        section h2 {
-            color: #336699; /* Bleu */
-            border-bottom: 2px solid #336699; /* Bleu */
-            padding-bottom: 10px;
-        }
-
-   
-          footer {
-            text-align: center;
-            margin-top: 90px;
-            padding: 20px;
-            background-color: #336699; /* Bleu */
-            color: #ffffff; /* Blanc */
-            width: 100%;
-            position: fixed;
-            bottom: 0;
-        }
-
-   
         .dashboard {
             max-width: 1200px;
             margin: 20px auto;
@@ -100,12 +73,16 @@
             color: #333;
             font-size: 18px;
             margin-bottom: 10px;
+            display: flex; /* Pour aligner l'icône et le texte horizontalement */
+            align-items: center; /* Pour aligner l'icône et le texte verticalement */
         }
 
         .value {
-            font-size: 16px;
-            color: #555;
-        }
+    font-size: 20px;
+    color: #336699;
+    margin-left: 20px; /* Ajout de l'espace à gauche */
+}
+
 
         ul {
             list-style: none;
@@ -126,7 +103,23 @@
             cursor: pointer;
         }
 
-       
+        footer {
+            text-align: center;
+            margin-top: 30px; /* Espace entre le contenu et le pied de page */
+            padding: 20px;
+            background-color: #336699; /* Bleu */
+            color: #ffffff; /* Blanc */
+            width: 100%;
+            position: fixed;
+            bottom: 0;
+        }
+
+        .card img {
+            width: 70px; /* Largeur de l'icône */
+            height: auto; /* Hauteur automatique pour garder les proportions */
+            border-radius: 50%; /* Pour un effet arrondi */
+            margin-right: 10px; /* Espace entre l'icône et le texte */
+        }
     </style>
 </head>
 <body>
@@ -143,18 +136,14 @@
         <ul>
             <li><a href="gestCompte.php">Gestion des comptes drivers</a></li>
             <li><a href="gestVoiture.php">Gestion des voitures</a></li>
-            <li><a href="gestMission.php">Gestion des mission</a></li>
+            <li><a href="gestMission.php">Gestion des missions</a></li>
         </ul>
     </nav>
     <div class="dashboard">
         <h1>Tableau de Bord </h1>
-        <div class="summary">
-            <div class="card">
-                <h2>Nombre de Conducteurs </h2>
-                <div class="value">
-                    <?php
+        <?php
                     // Connexion à la base de données
-                    $servername = "localhost:3307"; 
+                    $servername = "localhost"; 
                     $username = "root"; 
                     $password = ""; 
                     $dbname = "carproject"; 
@@ -163,6 +152,32 @@
                     if ($conn->connect_error) {
                         die("Connection failed: " . $conn->connect_error);
                     }
+                    ?>
+        <div class="summary">
+        <div class="card">
+                <h2>
+                <img src="report.png" alt="Icone rapport"> 
+                Nombre de Rapport</h2>
+                <div class="value">
+                    <?php
+                    // Requête SQL pour compter le nombre de rapports
+                    $sql = "SELECT COUNT(*) AS total FROM rapport";
+                    $result = $conn->query($sql);
+                    $row = $result->fetch_assoc();
+                    echo $row["total"];
+                    ?>
+                </div>
+            </div>
+            
+            <div class="card">
+                <a href="gestRapport.php"><h2>Voir les rapports recus </h2></a>
+            </div>
+            <div class="card">
+                <h2>
+                <img src="driver.png" alt="Icone driver"> 
+                Nombre de Conducteurs </h2>
+                <div class="value">
+                    <?php
 
                     // Requête SQL pour compter le nombre de conducteurs
                     $sql = "SELECT COUNT(*) AS total FROM User";
@@ -172,8 +187,11 @@
                     ?>
                 </div>
             </div>
+         
             <div class="card">
-                <h2>Nombre de Vehicules</h2>
+                <h2>
+                <img src="car.png" alt="Icone car"> 
+                Nombre de Vehicules</h2>
                 <div class="value">
                     <?php
                     // Requête SQL pour compter le nombre de véhicules
@@ -185,7 +203,9 @@
                 </div>
             </div>
             <div class="card">
-                <h2>Nombre de Mission accomplie</h2>
+                <h2>
+                <img src="target.png" alt="Icone target"> 
+                Nombre de Mission accomplie</h2>
                 <div class="value">
                     <?php
                     // Requête SQL pour compter le nombre de missions accomplies
@@ -197,7 +217,9 @@
                 </div>
             </div>
             <div class="card">
-                <h2>Nombre de Mission non accomplie</h2>
+            <h2>
+                <img src="failed.png" alt="Icone mission non accomplie">
+                 Nombre de Mission non accomplie</h2> 
                 <div class="value">
                     <?php
                     // Requête SQL pour compter le nombre de missions non accomplies
@@ -208,18 +230,7 @@
                     ?>
                 </div>
             </div>
-            <div class="card">
-                <h2>Nombre de Rapport</h2>
-                <div class="value">
-                    <?php
-                    // Requête SQL pour compter le nombre de rapports
-                    $sql = "SELECT COUNT(*) AS total FROM rapport";
-                    $result = $conn->query($sql);
-                    $row = $result->fetch_assoc();
-                    echo $row["total"];
-                    ?>
-                </div>
-            </div>
+            
            
         </div>
     </div>

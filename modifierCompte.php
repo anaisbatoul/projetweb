@@ -5,7 +5,7 @@ if(isset($_GET['id'])) {
     $idUser = $_GET['id'];
 
     // Connexion à la base de données (à remplacer avec vos informations de connexion)
-    $servername = "localhost:3307"; 
+    $servername = "localhost"; 
     $username = "root"; 
     $password_db = ""; 
     $dbname = "carproject";

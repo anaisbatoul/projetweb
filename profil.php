@@ -4,27 +4,24 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Driver Profile</title>
-    <link rel="stylesheet" href="gestion.css">
     <link rel="stylesheet" href="profil.css">
-   
 </head>
 <body>
-    <header>
-      
-      <div style="display: flex; justify-content: space-between; align-items: center;">
-          <h1>Fleetprodrivers <span style="font-size: 14px;">Admin</span></h1>
-          <a href="index.php">Déconnexion</a>
-      </div>
-  </header>
-
-  <nav>
-      <ul>
-          <li><a href="admin.php">Home</a></li>
-          <li><a href="gestVoiture.php">Gestion des voitures</a></li>
-          <li><a href="gestMission.php">Gestion des mission</a></li>
-          <li><a href="gestCompte.php">Gestion des conducteurs</a></li>
-      </ul>
-  </nav>
+    <header style="width: 100%; margin-bottom: 20px;">
+        <nav>
+            <table width="100%">
+                <tr>
+                    <td style="vertical-align: middle;">
+                        <h1 style="margin: 0; text-align: left;">Fleetprodrivers</h1>
+                        <h2 style="margin: 0; font-size: 24px;">Profil</h2>
+                    </td>
+                    <td width="5%">
+                        <a href="index.php">Deconnexion</a>
+                    </td>
+                </tr>
+            </table>
+        </nav>
+    </header>
 
     <div class="container">
     <?php
@@ -157,7 +154,7 @@ if(isset($_GET['id'])) {
                 <td colspan="2">
                     <ul>
                     <?php
-                    $sql = "SELECT * FROM Mission WHERE idUser='$userId' ";
+                    $sql = "SELECT * FROM Mission WHERE idUser='$userId' AND Etat='Terminée'";
                     $result = $conn->query($sql);
 
                     if ($result->num_rows > 0) {
@@ -183,7 +180,34 @@ if(isset($_GET['id'])) {
                 </td>
             </tr>
 
-            
+            <tr>
+                <td colspan="2">
+                    <div class="comment-box">
+                        <h2>Rapport</h2>
+                        <?php
+                        if ($_SERVER["REQUEST_METHOD"] == "POST") {
+                            // Vérifie si le formulaire a été soumis
+                            $rapport = $_POST["rapport"];
+                            $idUser = $_POST["idUser"];
+
+                            // Requête SQL pour insérer le rapport
+                            $sql_insert = "INSERT INTO rapport (idUser, rapport) VALUES ('$idUser', '$rapport')";
+
+                            if ($conn->query($sql_insert) === TRUE) {
+                                echo "<p style='color: green;'>Rapport envoyé avec succès.</p>";
+                            } else {
+                                echo "<p style='color: red;'>Erreur lors de l'envoi du rapport: " . $conn->error . "</p>";
+                            }
+                        }
+                        ?>
+                        <form method="post" action="">
+                            <textarea name="rapport" placeholder="Entrez votre rapport ici"></textarea>
+                            <input type="hidden" name="idUser" value="<?php echo $userId; ?>">
+                            <button type="submit">Envoyer</button>
+                        </form>
+                    </div>
+                </td>
+            </tr>
         </table>
     </div>
 

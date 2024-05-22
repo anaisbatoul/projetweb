@@ -1,6 +1,6 @@
 <?php
 // Connexion à la base de données
-$servername = "localhost:3307"; 
+$servername = "localhost"; 
 $username = "root"; 
 $password = ""; 
 $dbname = "carproject"; 
@@ -21,12 +21,10 @@ if (isset($_GET['delete_id'])) {
         // Si l'ID du conducteur existe dans la table des missions, afficher un message
         echo "<script>alert('Impossible de supprimer le conducteur car il est associé à une mission.');</script>";
     } else {
-        // Si l'ID du conducteur n'existe pas dans la table des missions, supprimer le conducteur
-        // Requête SQL pour supprimer les enregistrements dans la table usertypepermis associés au conducteur
         $sql_delete_usertypepermis = "DELETE FROM usertypepermis WHERE idUser='$delete_id'";
 
         if ($conn->query($sql_delete_usertypepermis) === TRUE) {
-            // Ensuite, supprimer le conducteur de la table user
+            
             $sql_delete_user = "DELETE FROM user WHERE idUser='$delete_id'";
             
             if ($conn->query($sql_delete_user) === TRUE) {
@@ -66,7 +64,7 @@ $result = $conn->query($sql);
         <ul>
             <li><a href="admin.php">Home</a></li>
             <li><a href="gestVoiture.php">Gestion des voitures</a></li>
-            <li><a href="gestMission.php">Gestion des mission</a></li>
+            <li><a href="gestMission.php">Gestion des missions</a></li>
             <li><a href="gestCompte.php">Gestion des conducteurs</a></li>
         </ul>
     </nav>
